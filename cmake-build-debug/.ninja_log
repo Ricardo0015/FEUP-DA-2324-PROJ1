@@ -1,0 +1,5 @@
+# ninja log v5
+1	428	1709993500623250618	CMakeFiles/Project1DataSetSmall.dir/main.cpp.o	fcdb4e92df96e7ec
+1	660	1709994175645317035	CMakeFiles/Project1DataSetSmall.dir/Management.cpp.o	fbdb7cd1aa56b315
+0	120	1709825894069577700	CMakeFiles/Project1DataSetSmall.dir/UFDS.cpp.o	6298f8f3990178ad
+661	723	1709994175709315211	Project1DataSetSmall	337e54007c927afb
