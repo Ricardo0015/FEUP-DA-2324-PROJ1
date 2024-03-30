@@ -1,10 +1,9 @@
-#include "Graph.h"
+#include "../Graph.h"
 #include <iostream>
 using namespace std;
 
 class App {
-
 public:
-    static Graph<std::string> loadDataSet();
-    static void startUI(Graph<std::string> graph);
+    static Graph<string> loadDataSet();
+    static void startUI(Graph<string> graph);
 };

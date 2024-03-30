@@ -1,3 +1,3 @@
-/home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo/CMakeFiles/Project1_DA.dir
-/home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo/CMakeFiles/edit_cache.dir
-/home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo/CMakeFiles/rebuild_cache.dir
+/home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/CMakeFiles/Project1_DA.dir
+/home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/CMakeFiles/edit_cache.dir
+/home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/CMakeFiles/rebuild_cache.dir

@@ -1,8 +1,8 @@
-CMakeFiles/Project1_DA.dir/T1/App.cpp.o: \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/App.cpp \
+CMakeFiles/Project1_DA.dir/T3/RSF.cpp.o: \
+ /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T3/RSF.cpp \
  /usr/include/stdc-predef.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/App.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/../Graph.h \
+ /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T3/RSF.h \
+ /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T3/../Graph.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -160,8 +160,4 @@ CMakeFiles/Project1_DA.dir/T1/App.cpp.o: \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/../T2/BSM.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/../T2/../Graph.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/../T3/RSF.h \
- /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/T1/../T3/../Graph.h
+ /usr/include/c++/11/bits/uniform_int_dist.h

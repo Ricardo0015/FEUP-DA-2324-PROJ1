@@ -1,4 +1,0 @@
-Cannot generate into /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1
-It is already used for project /home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo
-
-Please either delete it manually or select another generation directory

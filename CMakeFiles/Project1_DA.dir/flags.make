@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo/.
+CXX_INCLUDES = -I/home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/.
 
 CXX_FLAGS = -std=gnu++14
 

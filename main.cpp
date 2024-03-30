@@ -1,7 +1,5 @@
 #include "Graph.h"
-
 #include "T1/App.h"
-#include "T1/App.cpp"
 
 int main(){
 

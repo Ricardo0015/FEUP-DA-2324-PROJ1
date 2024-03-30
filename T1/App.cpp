@@ -2,12 +2,13 @@
 #include "../T2/BSM.h"
 #include "../T3/RSF.h"
 
-void App::loadDataSet() {
+
+Graph<string> App::loadDataSet() {
     // Load dataset (graph)
+    return Graph<string>();
 }
 
 void App::startUI(Graph<std::string> graph){
-    // there is a state machine here
     enum MenuOption {MENU, BSM, RSF, EXIT};
     MenuOption currentState = MENU;
     std::string choice;

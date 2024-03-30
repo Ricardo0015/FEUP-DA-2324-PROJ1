@@ -1,4 +1,4 @@
-# Install script for directory: /home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo
+# Install script for directory: /home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/daniel/Documentos/FEUP/coding/projetos-da/temp-repo/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/daniel/Documentos/FEUP/coding/projetos-da/FEUP-DA-2324-PROJ1/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
