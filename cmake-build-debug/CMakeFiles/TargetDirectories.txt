@@ -1,3 +1,0 @@
-/home/ricardo/Desktop/DA/Project1DataSetSmall/Project1DataSetSmall/cmake-build-debug/CMakeFiles/Project1DataSetSmall.dir
-/home/ricardo/Desktop/DA/Project1DataSetSmall/Project1DataSetSmall/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ricardo/Desktop/DA/Project1DataSetSmall/Project1DataSetSmall/cmake-build-debug/CMakeFiles/rebuild_cache.dir

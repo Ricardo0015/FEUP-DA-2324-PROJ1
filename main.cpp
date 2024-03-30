@@ -1,9 +1,15 @@
-#include "Management.h"
+#include "Graph.h"
+
+#include "T1/App.h"
+#include "T1/App.cpp"
 
 int main(){
-    Management citiesManager;
-    Graph<string> g = citiesManager.createGraph();
-    citiesManager.checkGraph(g);
+
+    // Load dataset (graph)
+    Graph<std::string> graph = App::loadDataSet();
+
+    // start the app UI
+    App::startUI(graph);
+
     return 0;
 }
-

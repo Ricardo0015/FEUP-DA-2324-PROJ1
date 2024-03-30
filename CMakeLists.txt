@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 3.27)
-project(Project1DataSetSmall)
+project(Project1_DA)
 
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(Project1DataSetSmall
-        Graph.h
-        Management.cpp
-        Management.h
-        MutablePriorityQueue.h
-        UFDS.cpp
-        UFDS.h
+add_executable(Project1_DA
+        T1/App.cpp
+        T2/BSM.cpp
+        T3/RSF.cpp
         main.cpp
-        App.cpp)
+        Graph.h
+)
