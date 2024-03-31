@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.23.2)
 project(Project1DataSetSmall)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -12,5 +12,4 @@ add_executable(Project1DataSetSmall
         MutablePriorityQueue.h
         UFDS.cpp
         UFDS.h
-        main.cpp
-        App.cpp)
+        main.cpp)

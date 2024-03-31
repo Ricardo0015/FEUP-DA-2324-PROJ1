@@ -30,6 +30,7 @@ public:
     bool isProcessing() const;
     unsigned int getIndegree() const;
     double getDist() const;
+    std::string getParent() const; //implemented by us
     Edge<T> *getPath() const;
     std::vector<Edge<T> *> getIncoming() const;
 
@@ -38,6 +39,7 @@ public:
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
+    void setParent(const std::string& parent); //implemented by us
     void setPath(Edge<T> *path);
     Edge<T> *addEdge(Vertex<T> *dest, double w, std::string string);
     bool removeEdge(T in);
@@ -60,6 +62,7 @@ protected:
     int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
 
     void deleteEdge(Edge<T> *edge);
+    std::string parent; //implemented by us
 };
 
 /********************** Edge  ****************************/
@@ -75,7 +78,6 @@ public:
     Vertex<T> * getOrig() const;
     Edge<T> *getReverse() const;
     double getFlow() const;
-
     void setSelected(bool selected);
     void setReverse(Edge<T> *reverse);
     void setFlow(double flow);
@@ -118,6 +120,8 @@ public:
     bool addEdge(const T &sourc, const T &dest, double w, std::string service);
     bool removeEdge(const T &source, const T &dest);
     bool addBidirectionalEdge(const T &sourc, const T &dest, double w, std::string service);
+    int maxFlow(std::string source, std::string target);
+    void edmondsKarp(std::string source, std::string target);
 
     int getNumVertex() const;
     std::vector<Vertex<T> *> getVertexSet() const;
@@ -140,6 +144,11 @@ protected:
      * Finds the index of the vertex with a given content.
      */
     int findVertexIdx(const T &in) const;
+    void bfs(std::string v);
+    std::vector<std::string> path(std::string a, std::string b);
+    int findBottleneck(std::vector<std::string> st_path);
+    void augmentPath(std::vector<std::string> st_path, int b);
+
 };
 
 void deleteMatrix(int **m, int n);
@@ -239,6 +248,12 @@ Edge<T> *Vertex<T>::getPath() const {
     return this->path;
 }
 
+//implemented by us
+template <class T>
+std::string Vertex<T>::getParent() const {
+    return this->parent;
+}
+
 template <class T>
 std::vector<Edge<T> *> Vertex<T>::getIncoming() const {
     return this->incoming;
@@ -272,6 +287,12 @@ void Vertex<T>::setDist(double dist) {
 template <class T>
 void Vertex<T>::setPath(Edge<T> *path) {
     this->path = path;
+}
+
+//implemented by us
+template <class T>
+void Vertex<T>::setParent(const std::string& parent) {
+    this->parent = parent;
 }
 
 template <class T>
@@ -662,6 +683,108 @@ template <class T>
 Graph<T>::~Graph() {
     deleteMatrix(distMatrix, vertexSet.size());
     deleteMatrix(pathMatrix, vertexSet.size());
+}
+
+/*implementar doxygen aqui*/
+
+template <class T>
+void Graph<T>::bfs(std::string v) {
+    for (Vertex<T> *vertex: vertexSet) vertex->setVisited(false);
+    std::queue<std::string> q;
+    q.push(v);
+    findVertex(v)->setVisited(true);
+    findVertex(v)->setDist(0);
+    findVertex(v)->setParent("");
+    while (!q.empty()) {
+        std::string u = q.front();
+        q.pop();
+        for (Edge<T> *e: findVertex(u)->getAdj()) {
+            if (e->getWeight() == e->getFlow()) continue;
+            std::string w = e->getDest()->getInfo();
+            if (!findVertex(w)->isVisited()) {
+                q.push(w);
+                findVertex(w)->setVisited(true);
+                findVertex(w)->setDist(findVertex(w)->getDist() + 1);
+                findVertex(w)->setParent(u);
+                findVertex(w)->setPath(e);
+            }
+        }
+        for (Edge<T> *e: findVertex(u)->getIncoming())
+            if (e->getFlow() > 0) {
+                std::string w = e->getOrig()->getInfo();
+                if (!findVertex(w)->isVisited()) {
+                    q.push(w);
+                    findVertex(w)->setVisited(true);
+                    findVertex(w)->setDist(findVertex(w)->getDist() + 1);
+                    findVertex(w)->setParent(u);
+                    findVertex(w)->setPath(e);
+                }
+            }
+    }
+}
+
+/*implementar doxygen aqui*/
+template <class T>
+std::vector<std::string> Graph<T>::path(std::string a, std::string b) {
+    std::vector<std::string> path;
+    for (Vertex<T> *v: vertexSet) {
+        v->setDist(-1);
+        v->setParent("");
+    }
+    bfs(a);
+    std::string x = b;
+    while (x != "") {
+        path.push_back(x);
+        x = findVertex(x)->getParent();
+    }
+    reverse(path.begin(), path.end());
+    return path;
+}
+
+/*implementar doxygen aqui*/
+template <class T>
+int Graph<T>::findBottleneck(std::vector<std::string> st_path) {
+    int b = INT32_MAX;
+    for (int i = 0; i < st_path.size() - 1; i++) {
+        Edge<T> *e = findVertex(st_path[i + 1])->getPath();
+        if (e->getOrig() == findVertex(st_path[i])) {
+            if (e->getWeight() - e->getFlow() < b) b = e->getWeight() - e->getFlow();
+        } else if (e->getFlow() < b) b = e->getFlow();
+    }
+    return b;
+}
+
+/*implementar doxygen aqui*/
+template <class T>
+void Graph<T>::augmentPath(std::vector<std::string> st_path, int b) {
+    for (int i = 0; i < st_path.size() - 1; i++) {
+        Edge<T> *e = findVertex(st_path[i + 1])->getPath();
+        if (e->getOrig() == findVertex(st_path[i])) e->setFlow(e->getFlow() + b);
+        else e->setFlow(e->getFlow() - b);
+    }
+}
+
+/*implementar doxygen aqui*/
+template <class T>
+void Graph<T>::edmondsKarp(std::string source, std::string target) {
+    for (Vertex<T> *v: vertexSet)
+        for (Edge<T> *e: v->getAdj())
+            e->setFlow(0);
+    std::vector<std::string> st_path = path(source, target);
+    while (st_path.size() > 1) {
+        int b = findBottleneck(st_path);
+        augmentPath(st_path, b);
+        st_path = path(source, target);
+    }
+}
+
+/*implementar doxygen aqui*/
+template <class T>
+int Graph<T>::maxFlow(std::string source, std::string target) {
+    int max_flow = 0;
+    edmondsKarp(source, target);
+    for (Edge<T> *e: findVertex(source)->getAdj()) max_flow += e->getFlow();
+    return max_flow;
 }
 
 #endif /* DA_TP_CLASSES_GRAPH */
