@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Project1DataSetSmall.dir/Management.cpp.o CMakeFiles/Project1DataSetSmall.dir/UFDS.cpp.o CMakeFiles/Project1DataSetSmall.dir/main.cpp.o CMakeFiles/Project1DataSetSmall.dir/App.cpp.o -o Project1DataSetSmall 

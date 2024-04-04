@@ -1,5 +1,77 @@
 #include "Management.h"
 
+/******************************* Basic Service Metrics **************************/
+
+/* T2.1 */
+// Determine the maximum amount of water that can reach each or a specific city (to
+// be selected via the Menu) and display it in a natural graphical format, such as by listing one pair
+// (city, code, value) per line on the output as well as to a file.
+void Management::maxAmountSpecificCity() {
+    // todo
+    // Criar uma instância da classe Management
+    Management manager;
+
+    // Chamar a função balanceNetworkLoad
+    Metrics metrics = manager.balanceNetworkLoad();
+
+    // Exibir as métricas retornadas
+    std::cout << "Average Flow Difference: " << metrics.averageFlowDifference << std::endl;
+    std::cout << "Variance Flow Difference: " << metrics.varianceFlowDifference << std::endl;
+    std::cout << "Max Flow Difference: " << metrics.maxFlowDifference << std::endl;
+}
+
+/* T2.2 */
+// Can an existing network configuration meet the water needs of its customer? In
+// other words, can all the water reservoirs supply enough water to all its delivery sites?
+void Management::verifyNetworkCapacity() {
+    // todo
+    printf("\nNot implemented yet\n");
+}
+
+/* T2.3 */
+// Use the results from T2.1. and develop a simple algorithm or heuristic to balance
+// the load across the network so that, as much as possible, you can minimize the differences of
+// flow to capacity on each pipe across the entire network.
+void Management::minimizeDifferencesFlowCapacity() {
+    // todo
+    printf("\nNot implemented yet\n");
+}
+
+/******************* Reliability and Sensitivity to Failures *******************/
+
+/* T3.1 */
+// You might be concerned about the network's resiliency. In this context, you should
+// evaluate what happens in terms of the delivery capacity of the network if one specific water reservoir
+// is out of commission. In other words, how much water can be delivered to the network's delivery
+// sites if one specific water reservoir is out of commission?
+void Management::reservoirRemoval() {
+    // todo
+    printf("\nNot implemented yet\n");
+}
+
+/* T3.2 */
+// As periodic maintenance is required, some of the pumping stations often need to
+// be temporarily removed from the network. Can any pumping station be temporarily taken out of service
+// without affecting the delivery capacity to all the cities?  If not, which cities are most affected?
+// For each examined pumping station, list the affected cities displaying their codes and water supply
+// deficits.
+void Management::pumpingStationRemoval() {
+    // todo
+    printf("\nNot implemented yet\n");
+}
+
+/* T3.3 */
+// Sometimes, pipeline failures can occur. For each city, determine which pipelines, if
+// ruptured, i.e., with a null flow capacity, would make it impossible to deliver the desired amount of
+// water to a given city. For each examined pipeline, list the affected cities displaying their codes and
+// water supply in deficit.
+void Management::pipeRemoval() {
+    // todo
+    printf("\nNot implemented yet\n");
+}
+
+/************* Other functions (auxiliary and loading/parsing data) *************/
+
 string decapitalize(const string& str) {
     string result;
     for (char c : str) {
@@ -72,7 +144,7 @@ string Management::cityNameToCode(string& cityNamex){
 Management::Management() {
     ifstream file;
     string city_1, id, code, demand_str, population_str, line;
-    file.open("Cities_Madeira.csv");
+    file.open(CITIES_FILE);
     getline(file, line); // skip header
     while (getline(file, city_1, ',')) {
         getline(file, id, ',');
@@ -95,7 +167,7 @@ Management::Management() {
 
     ifstream file1;
     string reservoir, municipality_1, id_1, code_1, maxdel_str, line1;
-    file.open("Reservoirs_Madeira.csv");
+    file.open(RESERVOIRS_FILE);
     getline(file, line1); // skip header
     while (getline(file, reservoir, ',')) {
         getline(file, municipality_1, ',');
@@ -116,7 +188,7 @@ Management::Management() {
 
     ifstream file2;
     string id_2, code_2, line2; // Add a dummy variable to handle the empty fields
-    file2.open("Stations_Madeira.csv");
+    file2.open(STATIONS_FILE);
     getline(file2, line2); // skip header
     while (getline(file2, line2)) {
         stringstream ss(line2);
@@ -138,7 +210,7 @@ Graph<string> Management::createGraph(){
     Vertex<std::string>* destVertex;
     ifstream file3;
     string a, b, capacity, direction, line3;
-    file3.open("Pipes_Madeira.csv");
+    file3.open(PIPES_FILE);
     getline(file3, line3);
     while(!file3.eof()) {
         getline(file3, a, ',');
