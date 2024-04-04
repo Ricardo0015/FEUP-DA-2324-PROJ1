@@ -1,16 +1,19 @@
 #include "Management.h"
+#include "App.h"
 
 int main() {
-    // Criar uma instância da classe Management
-    Management manager;
 
-    // Chamar a função balanceNetworkLoad
-    Metrics metrics = manager.balanceNetworkLoad();
+    // change to true if you want to test the Management.h functions
+    bool testing = false;
 
-    // Exibir as métricas retornadas
-    std::cout << "Average Flow Difference: " << metrics.averageFlowDifference << std::endl;
-    std::cout << "Variance Flow Difference: " << metrics.varianceFlowDifference << std::endl;
-    std::cout << "Max Flow Difference: " << metrics.maxFlowDifference << std::endl;
+    if (!testing) {
+        App app;
+        app.startUI();
+    } else {
+        // Management.h functions can be called from here while testing
+        Management management;
+        Management::maxAmountSpecificCity();
+    }
 
     return 0;
 }

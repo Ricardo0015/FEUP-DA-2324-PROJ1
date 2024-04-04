@@ -5,6 +5,11 @@
 #ifndef PROJECT1DATASETSMALL_MANAGEMENT_H
 #define PROJECT1DATASETSMALL_MANAGEMENT_H
 
+#define CITIES_FILE "Cities_Madeira.csv"
+#define STATIONS_FILE "Stations_Madeira.csv"
+#define RESERVOIRS_FILE "Reservoirs_Madeira.csv"
+#define PIPES_FILE "Pipes_Madeira.csv"
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,6 +43,15 @@ class Management {
     unordered_map<int, int> population;
 public:
     Management();
+
+    static void maxAmountSpecificCity();
+    static void verifyNetworkCapacity();
+    static void minimizeDifferencesFlowCapacity();
+
+    static void reservoirRemoval();
+    static void pumpingStationRemoval();
+    static void pipeRemoval();
+
     Graph<string> createGraph();
     void maxFlow(string& targetCity);
     void checkGraph(const Graph<string> &g);

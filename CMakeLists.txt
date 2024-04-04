@@ -12,4 +12,7 @@ add_executable(Project1DataSetSmall
         MutablePriorityQueue.h
         UFDS.cpp
         UFDS.h
+        main.cpp
+        App.cpp
+        App.h
         main.cpp)
